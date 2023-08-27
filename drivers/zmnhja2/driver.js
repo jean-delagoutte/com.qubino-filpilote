@@ -10,7 +10,7 @@ class MyDriver extends Driver {
   async onInit() {
     this.log('MyDriver has been initialized');
 	
-	 const cardActionChangeMode = this.homey.flow.getActionCard('zmnhjd1_chauffe_mode_set');
+	 const cardActionChangeMode = this.homey.flow.getActionCard('zmnhja2_chauffe_mode_set');
 	    cardActionChangeMode.registerRunListener(async (args) => {
 			const { chauffe_mode } = args;
 			await args.device.changeMode(chauffe_mode);

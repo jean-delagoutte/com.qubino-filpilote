@@ -1,19 +1,20 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
-  "id": "com.qubino-filpilote",
-  "version": "1.0.0",
+  "id": "com.qubino-fil-pilote",
+  "version": "1.0.1",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "platforms": [
     "local"
   ],
+  "brandColor": "#FF0000",
   "name": {
     "en": "Qubino Fil Pilote",
     "fr": "Qubino Fil Pilote"
   },
   "description": {
-    "en": "Adds support for ZMNHJD1 and ZMNHUD1",
-    "fr": "Support des modules ZMNHJD1 et ZMNHUD1"
+    "en": "Adds support for ZMNHJD1, ZMNHJA2, ZMNHUD1",
+    "fr": "Support des modules ZMNHJD1, ZMNHJA2, ZMNHUD1"
   },
   "category": [
     "energy"
@@ -25,8 +26,8 @@
     "xlarge": "/assets/images/xlarge.png"
   },
   "author": {
-    "name": "Nague Iam",
-    "email": "nague_@hotmail.com"
+    "name": "delagoutte jean",
+    "email": "dev.jean@delagoutte.fr"
   },
   "flow": {
     "actions": [
@@ -36,6 +37,117 @@
           "fr": "Envoyer un log vers la console"
         },
         "id": "log-to-the-console"
+      },
+      {
+        "id": "zmnhja2_chauffe_mode_set",
+        "title": {
+          "en": "Set the mode",
+          "nl": "Stel de modus in",
+          "de": "Modus setzen",
+          "fr": "Définir le Mode de Chauffage",
+          "it": "Imposta la modalità",
+          "sv": "Ställ in läget",
+          "no": "Innstill modusen",
+          "es": "Configurar el modo",
+          "da": "Indstil tilstanden"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=zmnhja2"
+          },
+          {
+            "name": "chauffe_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "hg",
+                "title": {
+                  "en": "Automatic",
+                  "nl": "Automatisch",
+                  "de": "Automatisch",
+                  "fr": "Hors Gel",
+                  "it": "Automatica",
+                  "sv": "Automatiskt",
+                  "no": "Automatisk",
+                  "es": "Automático",
+                  "da": "Automatisk"
+                }
+              },
+              {
+                "id": "eco",
+                "title": {
+                  "en": "Heat",
+                  "nl": "Verhitten",
+                  "de": "Heizen",
+                  "fr": "Eco",
+                  "it": "Calore",
+                  "sv": "Värme",
+                  "no": "Varme",
+                  "es": "Calentar",
+                  "da": "Opvarm"
+                }
+              },
+              {
+                "id": "confort",
+                "title": {
+                  "en": "Cool",
+                  "nl": "Koelen",
+                  "de": "Kühlen",
+                  "fr": "Confort",
+                  "it": "Raffreddamento",
+                  "sv": "Kyla",
+                  "no": "Avkjøle",
+                  "es": "Enfriar",
+                  "da": "Køl ned"
+                }
+              },
+              {
+                "id": "confort1",
+                "title": {
+                  "en": "Cool",
+                  "nl": "Koelen",
+                  "de": "Kühlen",
+                  "fr": "Confort 1",
+                  "it": "Raffreddamento",
+                  "sv": "Kyla",
+                  "no": "Avkjøle",
+                  "es": "Enfriar",
+                  "da": "Køl ned"
+                }
+              },
+              {
+                "id": "confort2",
+                "title": {
+                  "en": "Cool",
+                  "nl": "Koelen",
+                  "de": "Kühlen",
+                  "fr": "Confort 2",
+                  "it": "Raffreddamento",
+                  "sv": "Kyla",
+                  "no": "Avkjøle",
+                  "es": "Enfriar",
+                  "da": "Køl ned"
+                }
+              },
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Aus",
+                  "fr": "Off",
+                  "it": "Disattivata",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Desactivado",
+                  "da": "Deaktiveret"
+                }
+              }
+            ]
+          }
+        ]
       },
       {
         "id": "zmnhjd1_chauffe_mode_set",
@@ -264,6 +376,60 @@
   "drivers": [
     {
       "name": {
+        "en": "zmnhja2"
+      },
+      "class": "socket",
+      "capabilities": [
+        "chauffe_mode"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
+      "images": {
+        "small": "/drivers/zmnhja2/assets/images/small.png",
+        "large": "/drivers/zmnhja2/assets/images/large.png",
+        "xlarge": "/drivers/zmnhja2/assets/images/xlarge.png"
+      },
+      "zwave": {
+        "manufacturerId": 345,
+        "productTypeId": [
+          4
+        ],
+        "productId": [
+          1
+        ],
+        "learnmode": {
+          "image": "/drivers/zmnhja2/assets/learnmode.svg",
+          "instruction": {
+            "fr": "Veuillez mettre votre appareil zmnhja2 en mode 'apprentissage' via l'une des méthodes suivantes:\n\n1. Connecter le périphérique et attendre 5 secondes pour le mode auto-appairage.\n\n2. Appuyez 3 fois sur le bouton d'appairage dans les 3 secondes.",
+            "en": "Enable inclusion mode on the zmnhja2 via one of the following methods:\n\n1. Connect the device to the power supply and wait 5 seconds for auto-inclusion to start.\n\n2. Toggle the switch connected to input 1 three times within three seconds.",
+            "nl": "Activeer inclusie modus op de zmnhja2 via een van de volgende methoden:\n\n1. Verbind het apparaat met de stroomvoorziening en wacht 5 seconden tot auto-inclusie start.\n\n2. Schakel de schakelaar verbonden aan input 1 drie keer binnen drie seconden."
+          }
+        },
+        "zwaveAllianceProductId": 1234,
+        "associationGroups": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "associationGroupsOptions": {
+          "1": {
+            "hint": {
+              "en": "Z-Wave Plus Lifeline"
+            }
+          }
+        }
+      },
+      "id": "zmnhja2",
+      "settings": []
+    },
+    {
+      "name": {
         "en": "zmnhjd1"
       },
       "class": "socket",
@@ -314,60 +480,6 @@
         }
       },
       "id": "zmnhjd1",
-      "settings": []
-    },
-    {
-      "name": {
-        "en": "zmnhja2"
-      },
-      "class": "socket",
-      "capabilities": [
-        "chauffe_mode"
-      ],
-      "platforms": [
-        "local"
-      ],
-      "connectivity": [
-        "zwave"
-      ],
-      "images": {
-        "small": "/drivers/zmnhja2/assets/images/small.png",
-        "large": "/drivers/zmnhja2/assets/images/large.png",
-        "xlarge": "/drivers/zmnhja2/assets/images/xlarge.png"
-      },
-      "zwave": {
-        "manufacturerId": 159,
-        "productTypeId": [
-          4
-        ],
-        "productId": [
-          1
-        ],
-        "learnmode": {
-          "image": "/drivers/zmnhja2/assets/learnmode.svg",
-          "instruction": {
-            "fr": "Veuillez mettre votre appareil zmnhjd1 en mode 'apprentissage' via l'une des méthodes suivantes:\n\n1. Connecter le périphérique et attendre 5 secondes pour le mode auto-appairage.\n\n2. Appuyez 3 fois sur le bouton d'appairage dans les 3 secondes.",
-            "en": "Enable inclusion mode on the zmnhjd1 via one of the following methods:\n\n1. Connect the device to the power supply and wait 5 seconds for auto-inclusion to start.\n\n2. Toggle the switch connected to input 1 three times within three seconds.",
-            "nl": "Activeer inclusie modus op de zmnhjd1 via een van de volgende methoden:\n\n1. Verbind het apparaat met de stroomvoorziening en wacht 5 seconden tot auto-inclusie start.\n\n2. Schakel de schakelaar verbonden aan input 1 drie keer binnen drie seconden."
-          }
-        },
-        "zwaveAllianceProductId": 1234,
-        "associationGroups": [
-          1,
-          2,
-          3,
-          4,
-          5
-        ],
-        "associationGroupsOptions": {
-          "1": {
-            "hint": {
-              "en": "Z-Wave Plus Lifeline"
-            }
-          }
-        }
-      },
-      "id": "zmnhja2",
       "settings": []
     },
     {

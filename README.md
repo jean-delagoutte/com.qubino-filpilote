@@ -1,3 +1,6 @@
 # Qubino Fil Pilote
 
-Adds support for ZMNHJD1 and ZMNHUD1
+Adds support for : 
+- ZMNHJD1
+- ZMNHUD1
+- ZMNHJA2
