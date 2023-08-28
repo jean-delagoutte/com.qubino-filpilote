@@ -7,7 +7,7 @@ const {ZwaveDevice} = require('homey-zwavedriver');
 const { CAPABILITIES, COMMAND_CLASSES } = require('../../lib/constants');
 const {MODES} = require('./constants');
 
-class MyDevice extends ZwaveDevice {
+class Zmnhud1Device extends ZwaveDevice {
 
   /**
    * onInit is called when the device is initialized.
@@ -16,7 +16,7 @@ class MyDevice extends ZwaveDevice {
 	//await this.setUnavailable();
 
     this.registerCapability('chauffe_mode', 'SWITCH_MULTILEVEL');
-    this.log('MyDevice has been initialized');
+    this.log('Device Zmnhhud1 has been initialized');
 	
 	//if (this.hasCapability('onoff')==true) {
       // You need to check if migration is needed
@@ -61,7 +61,7 @@ class MyDevice extends ZwaveDevice {
    * onAdded is called when the user adds the device, called just after pairing.
    */
   async onAdded() {
-    this.log('MyDevice has been added');
+    this.log('Device Zmnhud1 has been added');
   }
 
   /**
@@ -73,7 +73,7 @@ class MyDevice extends ZwaveDevice {
    * @returns {Promise<string|void>} return a custom message that will be displayed
    */
   async onSettings({ oldSettings, newSettings, changedKeys }) {
-    this.log('MyDevice settings where changed');
+    this.log('Device Zmnhud1 settings where changed');
   }
 
   /**
@@ -82,16 +82,16 @@ class MyDevice extends ZwaveDevice {
    * @param {string} name The new name
    */
   async onRenamed(name) {
-    this.log('MyDevice was renamed');
+    this.log('Device Zmnhud1 was renamed');
   }
 
   /**
    * onDeleted is called when the user deleted the device.
    */
   async onDeleted() {
-    this.log('MyDevice has been deleted');
+    this.log('Device Zmnhud1 has been deleted');
   }
 
 }
 
-module.exports = MyDevice;
+module.exports = Zmnhud1Device;

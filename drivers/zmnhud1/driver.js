@@ -2,13 +2,13 @@
 
 const { Driver } = require('homey');
 
-class MyDriver extends Driver {
+class Zmnhud1Driver extends Driver {
 
   /**
    * onInit is called when the driver is initialized.
    */
   async onInit() {
-    this.log('MyDriver has been initialized');
+    this.log('Driver Zmnhud1 has been initialized');
 	
 	 const cardActionChangeMode = this.homey.flow.getActionCard('zmnhud1_chauffe_mode_set');
 	    cardActionChangeMode.registerRunListener(async (args) => {
@@ -40,4 +40,4 @@ class MyDriver extends Driver {
 
 }
 
-module.exports = MyDriver;
+module.exports = Zmnhud1Driver;

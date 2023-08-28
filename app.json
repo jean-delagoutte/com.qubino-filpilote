@@ -51,6 +51,17 @@
           "es": "Configurar el modo",
           "da": "Indstil tilstanden"
         },
+        "titleFormatted": {
+          "en": "Mode [[chauffe_mode]] is defined",
+          "nl": "Mode [[chauffe_mode]] is defined",
+          "de": "Mode [[chauffe_mode]] is defined",
+          "fr": "Mode [[chauffe_mode]] selectionné",
+          "it": "Mode [[chauffe_mode]] is defined",
+          "sv": "Mode [[chauffe_mode]] is defined",
+          "no": "Mode [[chauffe_mode]] is defined",
+          "es": "Mode [[chauffe_mode]] is defined",
+          "da": "Mode [[chauffe_mode]] is defined"
+        },
         "args": [
           {
             "type": "device",
@@ -64,15 +75,15 @@
               {
                 "id": "hg",
                 "title": {
-                  "en": "Automatic",
-                  "nl": "Automatisch",
-                  "de": "Automatisch",
+                  "en": "Frost Protection",
+                  "nl": "Bescherming Tegen Vorst",
+                  "de": "Frostschutz",
                   "fr": "Hors Gel",
-                  "it": "Automatica",
-                  "sv": "Automatiskt",
-                  "no": "Automatisk",
-                  "es": "Automático",
-                  "da": "Automatisk"
+                  "it": "Protezione Antigelo",
+                  "sv": "zaščita pred zmrzaljo",
+                  "no": "frostsikring",
+                  "es": "protección contra las heladas",
+                  "da": "frostsikring"
                 }
               },
               {
@@ -161,6 +172,17 @@
           "no": "Innstill modusen",
           "es": "Configurar el modo",
           "da": "Indstil tilstanden"
+        },
+        "titleFormatted": {
+          "en": "Mode [[chauffe_mode]] is defined",
+          "nl": "Mode [[chauffe_mode]] is defined",
+          "de": "Mode [[chauffe_mode]] is defined",
+          "fr": "Mode [[chauffe_mode]] selectionné",
+          "it": "Mode [[chauffe_mode]] is defined",
+          "sv": "Mode [[chauffe_mode]] is defined",
+          "no": "Mode [[chauffe_mode]] is defined",
+          "es": "Mode [[chauffe_mode]] is defined",
+          "da": "Mode [[chauffe_mode]] is defined"
         },
         "args": [
           {
@@ -273,6 +295,17 @@
           "es": "Configurar el modo",
           "da": "Indstil tilstanden"
         },
+        "titleFormatted": {
+          "en": "Mode [[chauffe_mode]] is defined",
+          "nl": "Mode [[chauffe_mode]] is defined",
+          "de": "Mode [[chauffe_mode]] is defined",
+          "fr": "Mode [[chauffe_mode]] selectionné",
+          "it": "Mode [[chauffe_mode]] is defined",
+          "sv": "Mode [[chauffe_mode]] is defined",
+          "no": "Mode [[chauffe_mode]] is defined",
+          "es": "Mode [[chauffe_mode]] is defined",
+          "da": "Mode [[chauffe_mode]] is defined"
+        },
         "args": [
           {
             "type": "device",
@@ -295,6 +328,112 @@
                   "no": "Automatisk",
                   "es": "Automático",
                   "da": "Automatisk"
+                }
+              },
+              {
+                "id": "eco",
+                "title": {
+                  "en": "Heat",
+                  "nl": "Verhitten",
+                  "de": "Heizen",
+                  "fr": "Eco",
+                  "it": "Calore",
+                  "sv": "Värme",
+                  "no": "Varme",
+                  "es": "Calentar",
+                  "da": "Opvarm"
+                }
+              },
+              {
+                "id": "confort",
+                "title": {
+                  "en": "Cool",
+                  "nl": "Koelen",
+                  "de": "Kühlen",
+                  "fr": "Confort",
+                  "it": "Raffreddamento",
+                  "sv": "Kyla",
+                  "no": "Avkjøle",
+                  "es": "Enfriar",
+                  "da": "Køl ned"
+                }
+              },
+              {
+                "id": "confort1",
+                "title": {
+                  "en": "Cool",
+                  "nl": "Koelen",
+                  "de": "Kühlen",
+                  "fr": "Confort 1",
+                  "it": "Raffreddamento",
+                  "sv": "Kyla",
+                  "no": "Avkjøle",
+                  "es": "Enfriar",
+                  "da": "Køl ned"
+                }
+              },
+              {
+                "id": "confort2",
+                "title": {
+                  "en": "Cool",
+                  "nl": "Koelen",
+                  "de": "Kühlen",
+                  "fr": "Confort 2",
+                  "it": "Raffreddamento",
+                  "sv": "Kyla",
+                  "no": "Avkjøle",
+                  "es": "Enfriar",
+                  "da": "Køl ned"
+                }
+              },
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Aus",
+                  "fr": "Off",
+                  "it": "Disattivata",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Desactivado",
+                  "da": "Deaktiveret"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "triggers": [
+      {
+        "id": "chauffe_mode_changed",
+        "title": {
+          "en": "Head Mode is changed",
+          "fr": "Mode de chauffage modifié"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=zmnhja2"
+          },
+          {
+            "name": "chauffe_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "hg",
+                "title": {
+                  "en": "Frost Protection",
+                  "nl": "Bescherming Tegen Vorst",
+                  "de": "Frostschutz",
+                  "fr": "Hors Gel",
+                  "it": "Protezione Antigelo",
+                  "sv": "zaščita pred zmrzaljo",
+                  "no": "frostsikring",
+                  "es": "protección contra las heladas",
+                  "da": "frostsikring"
                 }
               },
               {
@@ -420,7 +559,7 @@
         "associationGroupsOptions": {
           "1": {
             "hint": {
-              "en": "Z-Wave Plus Lifeline"
+              "en": "Z-Wave Lifeline"
             }
           }
         }
