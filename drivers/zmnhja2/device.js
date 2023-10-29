@@ -29,9 +29,13 @@ class Zmnhja2Device extends ZwaveDevice {
 	
 	
 	this.registerCapabilityListener('chauffe_mode', async (value) => {
-	this.log('Mode de chauffage: ',value);
+	  this.log('Mode de chauffage: ',value);
     this.changeMode(value);	
 	})
+  this.registerCapabilityListener('onoff', async (value) => {
+    this.log('Chauffage on/off: ',value);
+      this.onoff(value);	
+    })
 	
   }
 
@@ -55,6 +59,20 @@ class Zmnhja2Device extends ZwaveDevice {
 			return console.error( err );
 		}
 	  
+  }
+
+  async onoff(value) {
+    this.setWarning(null);
+    this.setCapabilityValue('onoff',value)
+    try{
+      if(value==false)
+        this.changeMode('eco');
+      else
+        this.changeMode('confort');
+    }catch (err) {
+      this.setWarning("Device not available");
+    return console.error( err );
+    } 
   }
 
   /**

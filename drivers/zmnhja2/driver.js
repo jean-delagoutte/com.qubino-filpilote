@@ -14,8 +14,15 @@ class Zmnhja2Driver extends Driver {
 	    cardActionChangeMode.registerRunListener(async (args) => {
 			const { chauffe_mode } = args;
 			await args.device.changeMode(chauffe_mode);
-	})
-	
+	  })
+
+    const cardTriggerChangeMode = this.homey.flow.getTriggerCard('chauffe_mode_changed');
+    cardTriggerChangeMode.registerRunListener(async (args, state) => {
+      const { chauffe_mode } = args;
+      this.homey.log('listener triggered', args, state);
+      return await promise.resolve(true);
+    })
+
   }
 
   /**
