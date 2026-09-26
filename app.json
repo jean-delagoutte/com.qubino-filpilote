@@ -517,7 +517,7 @@
       "name": {
         "en": "zmnhja2"
       },
-      "class": "socket",
+      "class": "heater",
       "capabilities": [
         "chauffe_mode",
         "onoff"
@@ -574,7 +574,8 @@
       },
       "class": "socket",
       "capabilities": [
-        "chauffe_mode"
+        "chauffe_mode",
+        "onoff"
       ],
       "platforms": [
         "local"

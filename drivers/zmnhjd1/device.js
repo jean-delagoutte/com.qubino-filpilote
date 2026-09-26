@@ -66,7 +66,7 @@ class Zmnhjd1Device extends ZwaveDevice {
     this.setCapabilityValue('onoff',value)
     try{
       if(value==false)
-        this.changeMode('eco');
+        this.changeMode('off');
       else
         this.changeMode('confort');
     }catch (err) {
