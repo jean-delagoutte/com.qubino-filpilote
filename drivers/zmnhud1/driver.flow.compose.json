@@ -13,6 +13,17 @@
 	  "es": "Configurar el modo",
 	  "da": "Indstil tilstanden"
 	},
+	"titleFormatted": {
+		"en": "Mode [[chauffe_mode]] is defined",
+		"nl": "Mode [[chauffe_mode]] is defined",
+		"de": "Mode [[chauffe_mode]] is defined",
+		"fr": "Mode [[chauffe_mode]] selectionné",
+		"it": "Mode [[chauffe_mode]] is defined",
+		"sv": "Mode [[chauffe_mode]] is defined",
+		"no": "Mode [[chauffe_mode]] is defined",
+		"es": "Mode [[chauffe_mode]] is defined",
+		"da": "Mode [[chauffe_mode]] is defined"
+	},
 	"args": [
 	  {
 		"name": "chauffe_mode",

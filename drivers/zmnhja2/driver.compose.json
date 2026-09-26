@@ -1,8 +1,8 @@
 {
   "name": {
-    "en": "zmnhjd1"
+    "en": "zmnhja2"
   },
-  "class": "socket",
+  "class": "heater",
   "capabilities": [
      "chauffe_mode",
      "onoff"
@@ -24,7 +24,7 @@
       4
     ],
     "productId": [
-      81
+      1
     ],
 	"learnmode": {
       "image": "{{driverAssetsPath}}/learnmode.svg",
@@ -41,7 +41,7 @@
     "associationGroupsOptions": {
       "1": {
         "hint": {
-          "en": "Z-Wave Plus Lifeline"
+          "en": "Z-Wave Lifeline"
         }
       }
     }

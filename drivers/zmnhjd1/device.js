@@ -7,7 +7,7 @@ const {ZwaveDevice} = require('homey-zwavedriver');
 const { CAPABILITIES, COMMAND_CLASSES } = require('../../lib/constants');
 const {MODES} = require('./constants');
 
-class MyDevice extends ZwaveDevice {
+class Zmnhjd1Device extends ZwaveDevice {
 
   /**
    * onInit is called when the device is initialized.
@@ -16,7 +16,7 @@ class MyDevice extends ZwaveDevice {
 	//await this.setUnavailable();
 
     this.registerCapability('chauffe_mode', 'SWITCH_MULTILEVEL');
-    this.log('MyDevice has been initialized');
+    this.log('Device Zmnhjd1 has been initialized');
 	
 	//if (this.hasCapability('onoff')==true) {
       // You need to check if migration is needed
@@ -32,6 +32,10 @@ class MyDevice extends ZwaveDevice {
 	this.log('Mode de chauffage: ',value);
     this.changeMode(value);	
 	})
+  this.registerCapabilityListener('onoff', async (value) => {
+    this.log('Chauffage on/off: ',value);
+      this.onoff(value);	
+    })
 	
   }
 
@@ -57,11 +61,25 @@ class MyDevice extends ZwaveDevice {
 	  
   }
 
+  async onoff(value) {
+    this.setWarning(null);
+    this.setCapabilityValue('onoff',value)
+    try{
+      if(value==false)
+        this.changeMode('off');
+      else
+        this.changeMode('confort');
+    }catch (err) {
+      this.setWarning("Device not available");
+    return console.error( err );
+    } 
+  }
+
   /**
    * onAdded is called when the user adds the device, called just after pairing.
    */
   async onAdded() {
-    this.log('MyDevice has been added');
+    this.log('Device Zmnhjd1 has been added');
   }
 
   /**
@@ -73,7 +91,7 @@ class MyDevice extends ZwaveDevice {
    * @returns {Promise<string|void>} return a custom message that will be displayed
    */
   async onSettings({ oldSettings, newSettings, changedKeys }) {
-    this.log('MyDevice settings where changed');
+    this.log('Device Zmnhjd1 settings where changed');
   }
 
   /**
@@ -82,16 +100,16 @@ class MyDevice extends ZwaveDevice {
    * @param {string} name The new name
    */
   async onRenamed(name) {
-    this.log('MyDevice was renamed');
+    this.log('Device Zmnhjd1 was renamed');
   }
 
   /**
    * onDeleted is called when the user deleted the device.
    */
   async onDeleted() {
-    this.log('MyDevice has been deleted');
+    this.log('Device Zmnhjd1 has been deleted');
   }
 
 }
 
-module.exports = MyDevice;
+module.exports = Zmnhjd1Device;

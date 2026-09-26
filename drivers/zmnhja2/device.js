@@ -7,7 +7,7 @@ const {ZwaveDevice} = require('homey-zwavedriver');
 const { CAPABILITIES, COMMAND_CLASSES } = require('../../lib/constants');
 const {MODES} = require('./constants');
 
-class Zmnhud1Device extends ZwaveDevice {
+class Zmnhja2Device extends ZwaveDevice {
 
   /**
    * onInit is called when the device is initialized.
@@ -16,7 +16,7 @@ class Zmnhud1Device extends ZwaveDevice {
 	//await this.setUnavailable();
 
     this.registerCapability('chauffe_mode', 'SWITCH_MULTILEVEL');
-    this.log('Device Zmnhhud1 has been initialized');
+    this.log('Device Zmnhja2 has been initialized');
 	
 	//if (this.hasCapability('onoff')==true) {
       // You need to check if migration is needed
@@ -29,9 +29,13 @@ class Zmnhud1Device extends ZwaveDevice {
 	
 	
 	this.registerCapabilityListener('chauffe_mode', async (value) => {
-	this.log('Mode de chauffage: ',value);
+	  this.log('Mode de chauffage: ',value);
     this.changeMode(value);	
 	})
+  this.registerCapabilityListener('onoff', async (value) => {
+    this.log('Chauffage on/off: ',value);
+      this.onoff(value);	
+    })
 	
   }
 
@@ -57,11 +61,25 @@ class Zmnhud1Device extends ZwaveDevice {
 	  
   }
 
+  async onoff(value) {
+    this.setWarning(null);
+    this.setCapabilityValue('onoff',value)
+    try{
+      if(value==false)
+        this.changeMode('off');
+      else
+        this.changeMode('confort');
+    }catch (err) {
+      this.setWarning("Device not available");
+    return console.error( err );
+    } 
+  }
+
   /**
    * onAdded is called when the user adds the device, called just after pairing.
    */
   async onAdded() {
-    this.log('Device Zmnhud1 has been added');
+    this.log('Device Zmnhja2 has been added');
   }
 
   /**
@@ -73,7 +91,7 @@ class Zmnhud1Device extends ZwaveDevice {
    * @returns {Promise<string|void>} return a custom message that will be displayed
    */
   async onSettings({ oldSettings, newSettings, changedKeys }) {
-    this.log('Device Zmnhud1 settings where changed');
+    this.log('Device Zmnhja2 settings where changed');
   }
 
   /**
@@ -82,16 +100,16 @@ class Zmnhud1Device extends ZwaveDevice {
    * @param {string} name The new name
    */
   async onRenamed(name) {
-    this.log('Device Zmnhud1 was renamed');
+    this.log('Device Zmnhja2 was renamed');
   }
 
   /**
    * onDeleted is called when the user deleted the device.
    */
   async onDeleted() {
-    this.log('Device Zmnhud1 has been deleted');
+    this.log('Device Zmnhja2 has been deleted');
   }
 
 }
 
-module.exports = Zmnhud1Device;
+module.exports = Zmnhja2Device;

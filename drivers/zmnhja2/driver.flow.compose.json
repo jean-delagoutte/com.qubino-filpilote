@@ -1,0 +1,224 @@
+{
+  "actions": [
+    {
+	"id": "zmnhja2_chauffe_mode_set",
+	"title": {
+	  "en": "Set the mode",
+	  "nl": "Stel de modus in",
+	  "de": "Modus setzen",
+	  "fr": "Définir le Mode de Chauffage",
+	  "it": "Imposta la modalità",
+	  "sv": "Ställ in läget",
+	  "no": "Innstill modusen",
+	  "es": "Configurar el modo",
+	  "da": "Indstil tilstanden"
+	},
+	"titleFormatted": {
+		"en": "Mode [[chauffe_mode]] is defined",
+		"nl": "Mode [[chauffe_mode]] is defined",
+		"de": "Mode [[chauffe_mode]] is defined",
+		"fr": "Mode [[chauffe_mode]] selectionné",
+		"it": "Mode [[chauffe_mode]] is defined",
+		"sv": "Mode [[chauffe_mode]] is defined",
+		"no": "Mode [[chauffe_mode]] is defined",
+		"es": "Mode [[chauffe_mode]] is defined",
+		"da": "Mode [[chauffe_mode]] is defined"
+	},
+	"args": [
+	  {
+		"name": "chauffe_mode",
+		"type": "dropdown",
+		"values": [
+		 {
+			  "id": "hg",
+			  "title": {
+				"en": "Frost Protection",
+				"nl": "Bescherming Tegen Vorst",
+				"de": "Frostschutz",
+				"fr": "Hors Gel",
+				"it": "Protezione Antigelo",
+				"sv": "zaščita pred zmrzaljo",
+				"no": "frostsikring",
+				"es": "protección contra las heladas",
+				"da": "frostsikring"
+			  }
+			},
+			{
+			  "id": "eco",
+			  "title": {
+				"en": "Heat",
+				"nl": "Verhitten",
+				"de": "Heizen",
+				"fr": "Eco",
+				"it": "Calore",
+				"sv": "Värme",
+				"no": "Varme",
+				"es": "Calentar",
+				"da": "Opvarm"
+			  }
+			},
+			{
+			  "id": "confort",
+			  "title": {
+				"en": "Cool",
+				"nl": "Koelen",
+				"de": "Kühlen",
+				"fr": "Confort",
+				"it": "Raffreddamento",
+				"sv": "Kyla",
+				"no": "Avkjøle",
+				"es": "Enfriar",
+				"da": "Køl ned"
+			  }
+			},
+			{
+			  "id": "confort1",
+			  "title": {
+				"en": "Cool",
+				"nl": "Koelen",
+				"de": "Kühlen",
+				"fr": "Confort 1",
+				"it": "Raffreddamento",
+				"sv": "Kyla",
+				"no": "Avkjøle",
+				"es": "Enfriar",
+				"da": "Køl ned"
+			  }
+			},
+			{
+			  "id": "confort2",
+			  "title": {
+				"en": "Cool",
+				"nl": "Koelen",
+				"de": "Kühlen",
+				"fr": "Confort 2",
+				"it": "Raffreddamento",
+				"sv": "Kyla",
+				"no": "Avkjøle",
+				"es": "Enfriar",
+				"da": "Køl ned"
+			  }
+			},
+			{
+			  "id": "off",
+			  "title": {
+				"en": "Off",
+				"nl": "Uit",
+				"de": "Aus",
+				"fr": "Off",
+				"it": "Disattivata",
+				"sv": "Av",
+				"no": "Av",
+				"es": "Desactivado",
+				"da": "Deaktiveret"
+			  }
+			}
+
+		]
+	  }
+	]
+   
+    }
+  ],
+  "triggers":[
+	{
+		"id":"chauffe_mode_changed",
+		"title":{
+			"en":"Head Mode is changed",
+			"fr": "Mode de chauffage modifié"
+		},"args": [
+			{
+			  "name": "chauffe_mode",
+			  "type": "dropdown",
+			  "values": [
+			   {
+					"id": "hg",
+					"title": {
+					  "en": "Frost Protection",
+					  "nl": "Bescherming Tegen Vorst",
+					  "de": "Frostschutz",
+					  "fr": "Hors Gel",
+					  "it": "Protezione Antigelo",
+					  "sv": "zaščita pred zmrzaljo",
+					  "no": "frostsikring",
+					  "es": "protección contra las heladas",
+					  "da": "frostsikring"
+					}
+				  },
+				  {
+					"id": "eco",
+					"title": {
+					  "en": "Heat",
+					  "nl": "Verhitten",
+					  "de": "Heizen",
+					  "fr": "Eco",
+					  "it": "Calore",
+					  "sv": "Värme",
+					  "no": "Varme",
+					  "es": "Calentar",
+					  "da": "Opvarm"
+					}
+				  },
+				  {
+					"id": "confort",
+					"title": {
+					  "en": "Cool",
+					  "nl": "Koelen",
+					  "de": "Kühlen",
+					  "fr": "Confort",
+					  "it": "Raffreddamento",
+					  "sv": "Kyla",
+					  "no": "Avkjøle",
+					  "es": "Enfriar",
+					  "da": "Køl ned"
+					}
+				  },
+				  {
+					"id": "confort1",
+					"title": {
+					  "en": "Cool",
+					  "nl": "Koelen",
+					  "de": "Kühlen",
+					  "fr": "Confort 1",
+					  "it": "Raffreddamento",
+					  "sv": "Kyla",
+					  "no": "Avkjøle",
+					  "es": "Enfriar",
+					  "da": "Køl ned"
+					}
+				  },
+				  {
+					"id": "confort2",
+					"title": {
+					  "en": "Cool",
+					  "nl": "Koelen",
+					  "de": "Kühlen",
+					  "fr": "Confort 2",
+					  "it": "Raffreddamento",
+					  "sv": "Kyla",
+					  "no": "Avkjøle",
+					  "es": "Enfriar",
+					  "da": "Køl ned"
+					}
+				  },
+				  {
+					"id": "off",
+					"title": {
+					  "en": "Off",
+					  "nl": "Uit",
+					  "de": "Aus",
+					  "fr": "Off",
+					  "it": "Disattivata",
+					  "sv": "Av",
+					  "no": "Av",
+					  "es": "Desactivado",
+					  "da": "Deaktiveret"
+					}
+				  }
+	  
+			  ]
+			}
+		  ]
+	}
+  ]
+}

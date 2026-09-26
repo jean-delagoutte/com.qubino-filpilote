@@ -2,20 +2,27 @@
 
 const { Driver } = require('homey');
 
-class Zmnhud1Driver extends Driver {
+class Zmnhja2Driver extends Driver {
 
   /**
    * onInit is called when the driver is initialized.
    */
   async onInit() {
-    this.log('Driver Zmnhud1 has been initialized');
+    this.log('Driver Zmnhja2 has been initialized');
 	
-	 const cardActionChangeMode = this.homey.flow.getActionCard('zmnhud1_chauffe_mode_set');
+	 const cardActionChangeMode = this.homey.flow.getActionCard('zmnhja2_chauffe_mode_set');
 	    cardActionChangeMode.registerRunListener(async (args) => {
 			const { chauffe_mode } = args;
 			await args.device.changeMode(chauffe_mode);
-	})
-	
+	  })
+
+    const cardTriggerChangeMode = this.homey.flow.getTriggerCard('chauffe_mode_changed');
+    cardTriggerChangeMode.registerRunListener(async (args, state) => {
+      const { chauffe_mode } = args;
+      this.homey.log('listener triggered', args, state);
+      return await promise.resolve(true);
+    })
+
   }
 
   /**
@@ -40,4 +47,4 @@ class Zmnhud1Driver extends Driver {
 
 }
 
-module.exports = Zmnhud1Driver;
+module.exports = Zmnhja2Driver;
